@@ -1,8 +1,12 @@
-import React from 'react'
+import { FunctionComponent } from "react";
+//Component
+import { Header } from "./component/header/header.component";
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const App = () => {
-  return <h1>Hello World</h1>
-}
+interface AppProps {}
 
-export default App
+
+const App: FunctionComponent<AppProps> = () => {
+  return <Header />;
+};
+
+export default App;
