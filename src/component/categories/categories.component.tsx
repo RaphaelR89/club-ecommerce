@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 // Utilities
+import CategoryItem from "./category-item/category-item.component";
 import Category from "../../types/category.types";
 
 // Styles
@@ -19,7 +20,7 @@ const Categories = () => {
 
       setCategories(data);
     } catch (error) {
-      console.log({ error });
+      console.error({ error });
     }
   };
 
@@ -30,7 +31,11 @@ const Categories = () => {
   return (
     <div className="categories-container">
       <div className="categories-content">
-        {/* {categories.map(category => <CategoryItem)} */}
+        {categories.map((category) => (
+          <div key={category.id}>
+            <CategoryItem category={category} />
+          </div>
+        ))}
       </div>
     </div>
   );
