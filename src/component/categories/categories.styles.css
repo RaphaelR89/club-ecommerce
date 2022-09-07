@@ -19,12 +19,10 @@
 
 .categories-container div:nth-child(1) {
   grid-area: a;
-  background-color: red;
 }
 
 .categories-container div:nth-child(2) {
   grid-area: b;
-  background-color: yellow;
 }
 
 .categories-container div:nth-child(3) {
