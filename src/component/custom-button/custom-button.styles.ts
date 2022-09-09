@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Colors from "../../theme/theme.color";
+import Colors from "../../theme/theme.colors";
 
 export const CustomButtonContainer = styled.button`
   width: 100%;
