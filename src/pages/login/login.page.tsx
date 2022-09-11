@@ -17,16 +17,22 @@ import {
 } from "./login.styles";
 import InputErrorMessage from "../../component/input-error-message/input-error-message.component";
 
+interface LoginForm {
+  email: string;
+  password: string;
+}
+
 const LoginPage = () => {
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm();
+  } = useForm<LoginForm>();
   const handleSubmitPress = (data: any) => {
     console.log(data);
   };
   console.log({ errors });
+
   return (
     <>
       <Header />
@@ -64,7 +70,7 @@ const LoginPage = () => {
             <CustomInput
               hasError={!!errors?.password}
               placeholder="Digite sua senha"
-              type='password'
+              type="password"
               {...register("password", { required: true })}
             />
             {errors?.password?.type === "required" && (
