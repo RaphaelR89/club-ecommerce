@@ -1,11 +1,11 @@
-import Product from "./product.types";
+import Product from './product.types'
 
 interface Category {
-  id: string;
-  name: string;
-  displayName: string;
-  imageUrl: string;
-  products: Product[];
+  id: string
+  name: string
+  displayName: string
+  imageUrl: string
+  products: Product[]
 }
 
-export default Category;
+export default Category

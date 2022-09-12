@@ -29,6 +29,7 @@ export const SignUpContent = styled.div`
 export const SignUpInputContainer = styled.div`
   width: 100%;
   margin-bottom: 20px;
+
   p:nth-child(1) {
     font-weight: 600;
     margin-bottom: 5px;
