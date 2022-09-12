@@ -11,6 +11,9 @@ import "./header.styles.css";
 
 export const Header = () => {
   const navigate = useNavigate();
+  const handleExploreClick = () => {
+    navigate("/");
+  };
   const handleLoginClick = () => {
     navigate("/login");
   };
@@ -21,7 +24,7 @@ export const Header = () => {
     <HeaderContainer>
       <HeaderTitle>CLUB CLOTHING</HeaderTitle>
       <HeaderItems>
-        <HeaderItem>Explorar</HeaderItem>
+        <HeaderItem onClick={handleExploreClick}>Explorar</HeaderItem>
         <HeaderItem onClick={handleLoginClick}>Login</HeaderItem>
         <HeaderItem onClick={handleSignUpClick}>Criar Conta</HeaderItem>
         <HeaderItem>
