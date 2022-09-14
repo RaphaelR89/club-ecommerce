@@ -9,7 +9,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup
 } from 'firebase/auth'
-import { useEffect, useContext } from 'react'
+import { useEffect, useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 // Components
@@ -30,6 +30,7 @@ import {
 // Utilities
 import { auth, db, googleProvider } from '../../config/firebase.config'
 import { UserContext } from '../../contexts/user.context'
+import Loading from '../../components/loading/loading.component'
 
 interface LoginForm {
   email: string
@@ -44,6 +45,7 @@ const LoginPage = () => {
     formState: { errors }
   } = useForm<LoginForm>()
 
+  const [isLoading, setIsLoading] = useState(false)
   const { isAuthenticated } = useContext(UserContext)
   const navigate = useNavigate()
   useEffect(() => {
@@ -54,6 +56,7 @@ const LoginPage = () => {
 
   const handleSubmitPress = async (data: LoginForm) => {
     try {
+      setIsLoading(true)
       const userCredentials = await signInWithEmailAndPassword(
         auth,
         data.email,
@@ -71,6 +74,8 @@ const LoginPage = () => {
       if (_error.code === AuthErrorCodes.USER_DELETED) {
         return setError('email', { type: 'notFound' })
       }
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -107,7 +112,7 @@ const LoginPage = () => {
   return (
     <>
       <Header />
-
+      {isLoading && <Loading />}
       <LoginContainer>
         <LoginContent>
           <LoginHeadline>Entre com a sua conta</LoginHeadline>
